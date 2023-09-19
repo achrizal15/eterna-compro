@@ -11,18 +11,24 @@
     </div>
     <div class="app-menu">
         <ul class="accordion-menu">
-            <li class="{{ request()->routeIs('rgpanel.index') ? 'active-page' : '' }}">
-                <a href="{{ route('rgpanel.index', ['locale' => app()->getLocale()]) }}"><i
-                        class="material-icons-two-tone">dashboard</i>@lang('menu.dashboard')</a>
-            </li>
+
+            @can('read dashboard')
+                <li class="{{ request()->routeIs('rgpanel.index') ? 'active-page' : '' }}">
+                    <a href="{{ route('rgpanel.index', ['locale' => app()->getLocale()]) }}"><i
+                            class="material-icons-two-tone">dashboard</i>@lang('menu.dashboard')</a>
+                </li>
+            @endcan
+
             <li><a href=""><i class="material-icons-two-tone">collections_bookmark</i>@lang('menu.banners')</a></li>
             <li> <a href="#"><i class="material-icons-two-tone">home_repair_service</i>@lang('menu.services')</a></li>
             <li><a href="#"><i class="material-icons-two-tone">inventory</i>@lang('menu.projects')</a></li>
             <li> <a href="#"><i class="material-icons-two-tone">feedback</i>@lang('menu.feedbacks')</a></li>
-            <li class="{{ request()->routeIs('rgpanel.users.*') ? 'active-page' : '' }}">
-                <a href="{{ route('rgpanel.users.index', ['locale' => app()->getLocale()]) }}"><i
-                        class="material-icons-two-tone">manage_accounts</i>@lang('menu.users')</a>
-            </li>
+            @can('read user')
+                <li class="{{ request()->routeIs('rgpanel.users.*') ? 'active-page' : '' }}">
+                    <a href="{{ route('rgpanel.users.index', ['locale' => app()->getLocale()]) }}"><i
+                            class="material-icons-two-tone">manage_accounts</i>@lang('menu.users')</a>
+                </li>
+            @endcan
             <li> <a href="#"><i class="material-icons-two-tone">group</i>@lang('menu.teams')</a></li>
             <li> <a href="#"><i class="material-icons-two-tone">settings</i>@lang('menu.apps_settings')</a></li>
             <li>
