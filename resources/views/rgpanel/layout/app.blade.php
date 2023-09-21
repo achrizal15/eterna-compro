@@ -131,7 +131,7 @@
     <script src="{{ asset('dist/rgpanel/assets') }}/plugins/highlight/highlight.pack.js"></script>
     <script src="{{ asset('dist/rgpanel/assets') }}/js/main.min.js"></script>
     <script src="{{ asset('dist/rgpanel/assets') }}/js/custom.js"></script>
-    @vite('resources/js/app.js')
+    @vite('resources/js/rgpanel/app.js')
     @yield('js')
 </body>
 

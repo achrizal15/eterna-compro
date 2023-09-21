@@ -18,11 +18,13 @@ class BannerController extends Controller
     public function create()
     {
         $title = __('banner.Create Banners');
-        return view('rgpanel.banner.form', compact('title'));
+        $route = route('rgpanel.banners.store', ['locale' => app()->getLocale()]);
+        $method = 'post';
+        return view('rgpanel.banner.form', compact('title', 'route', 'method'));
     }
     public function store(Request $request)
     {
-        $request->validate([
+        $validate = $request->validate([
             'image_desktop' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
             'title' => 'nullable|string|max:255',
             'description' => 'nullable|string|max:500',
@@ -30,6 +32,12 @@ class BannerController extends Controller
             'button_link' => 'nullable|url|max:255',
             'image_mobile' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
-        $request->file('image_desktop')->store('banners', 'public');
+        $validate['image_desktop'] = $request->file('image_desktop')->store('banners', 'public');
+        if ($request->hasFile('image_mobile')) {
+            $validate['image_mobile'] = $request->file('image_mobile')->store('banners', 'public');
+        }
+        Banner::create($validate);
+        return redirect()->route('rgpanel.banners.index', ['locale' => app()->getLocale()])
+            ->with(['message' => __('banner.Banner successfully created')]);
     }
 }
