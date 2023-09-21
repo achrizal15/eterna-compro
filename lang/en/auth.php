@@ -16,5 +16,8 @@ return [
     'failed' => 'These credentials do not match our records.',
     'password' => 'The provided password is incorrect.',
     'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
-
+    'label_description' => 'Please sign-in to your account and continue to the dashboard.',
+    'label_password' => 'Password',
+    'label_email' => 'Email',
+    'sign_in' => 'Sign In'
 ];

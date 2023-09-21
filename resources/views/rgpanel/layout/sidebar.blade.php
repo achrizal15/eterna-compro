@@ -19,7 +19,10 @@
                 </li>
             @endcan
 
-            <li><a href=""><i class="material-icons-two-tone">collections_bookmark</i>@lang('menu.banners')</a></li>
+            @can('read banner')
+                <li><a href="{{ route('rgpanel.banners.index', ['locale' => app()->getLocale()]) }}"><i
+                            class="material-icons-two-tone">collections_bookmark</i>@lang('menu.banners')</a></li>
+            @endcan
             <li> <a href="#"><i class="material-icons-two-tone">home_repair_service</i>@lang('menu.services')</a></li>
             <li><a href="#"><i class="material-icons-two-tone">inventory</i>@lang('menu.projects')</a></li>
             <li> <a href="#"><i class="material-icons-two-tone">feedback</i>@lang('menu.feedbacks')</a></li>
@@ -42,7 +45,8 @@
                     <li><a href="menu-off-canvas.html">@lang('menu.project_page')</a></li>
                 </ul>
             </li>
-            <li> <a href="#"><i class="material-icons-two-tone">logout</i>@lang('menu.log_out')</a></li>
+            <li> <a href="{{ route('rgpanel.logout', ['locale' => app()->getLocale()]) }}"><i
+                        class="material-icons-two-tone">logout</i>@lang('menu.log_out')</a></li>
 
         </ul>
     </div>

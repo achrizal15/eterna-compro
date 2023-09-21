@@ -18,7 +18,7 @@ class SetLocale
         $locale = $request->route('locale');
         if ($locale) {
             if (!in_array($locale, ['en', 'id'])) {
-                return abort(404);
+                return redirect('/en/' . $locale);
             }
         } else {
             return redirect(route('rgpanel.index', ['locale' => 'en']));
