@@ -13,12 +13,11 @@
     <div class="app-menu">
         <ul class="accordion-menu">
 
-            @can('read dashboard')
-                <li class="{{ request()->routeIs('rgpanel.index') ? 'active-page' : '' }}">
-                    <a href="{{ route('rgpanel.index', ['locale' => app()->getLocale()]) }}"><i
-                            class="material-icons-two-tone">dashboard</i>@lang('menu.dashboard')</a>
-                </li>
-            @endcan
+
+            <li class="{{ request()->routeIs('rgpanel.index') ? 'active-page' : '' }}">
+                <a href="{{ route('rgpanel.index', ['locale' => app()->getLocale()]) }}"><i
+                        class="material-icons-two-tone">dashboard</i>@lang('menu.dashboard')</a>
+            </li>
 
             @can('read banner')
                 <li class="{{ request()->routeIs('rgpanel.banners.*') ? 'active-page' : '' }}"><a
