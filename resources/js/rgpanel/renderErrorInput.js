@@ -7,13 +7,17 @@ const showError = (fieldName, errorMessage) => {
 // Menghilangkan pesan kesalahan
 const clearError = (fieldName) => {
     const errorElement = document.getElementById(`${fieldName}Error`);
-    if (!errorElement) return "";
-    errorElement.innerHTML = "";
-    errorElement.classList.remove("d-block");
+    const invalidElement = $(".invalid-feedback");
+    invalidElement.each(function () {
+        $(this).removeClass("d-block");
+    });
     const errorAlertElement = document.querySelector(".js-alert");
     if (errorAlertElement) {
         errorAlertElement.remove();
     }
+    if (!errorElement) return "";
+    errorElement.innerHTML = "";
+    errorElement.classList.remove("d-block");
 };
 
 const showAlert = (severity = "danger", message, elementAdjacentClass) => {

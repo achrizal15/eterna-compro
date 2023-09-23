@@ -17,8 +17,10 @@ class RolesTableSeeder extends Seeder
     public function run(): void
     {
         $user = User::find(1);
-        $user->assignRole(Role::create(['name' => 'admin'])->givePermissionTo([
-            Permission::create(['name' => 'read dashboard'])
+        $permission = Permission::create(['name' => 'read dashboard']);
+        $user->assignRole(Role::create(['name' => 'Dashboard'])->givePermissionTo([
+            $permission
         ]));
+        $user->givePermissionTo($permission);
     }
 }

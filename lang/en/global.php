@@ -2,6 +2,27 @@
 
 return [
          'Back' => 'Back',
+         'Ok' => 'Ok',
          'Submit' => 'Submit',
-         'Optional' => 'Optional'
+         'Optional' => 'Optional',
+         'Action' => 'Action',
+         'Form' => 'Form',
+         'success' => 'Success',
+         'empty_do_not_changes' => 'Leave empty if you do not want to make changes.',
+         'Permissions' => 'Permissions',
+         'Error' => 'Error',
+         'create_failed' => 'Failed to create, please refresh and try again',
+         'update_failed' => 'Failed to update, please refresh and try again',
+         'delete_failed' => 'Failed to delete, please refresh and try again',
+         'delete_success' => 'Deleted successfully',
+         'update_success' => 'Updated successfully',
+         'create_success' => 'Successfully created',
+         'delete_confirmation' => 'Are you sure to delete?',
+         'delete' => 'Delete',
+         'cancel' => 'Cancel',
+         'Create User' => 'Create User',
+         'Users' => 'Users',
+         'Name' => 'Name',
+         'Email' => 'Email',
+         'Created At' => 'Created At',
 ];

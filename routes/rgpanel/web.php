@@ -10,7 +10,7 @@ Route::middleware(['auth'])
                   Route::get('/', DashboardController::class)->name('index');
                   Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
-                  Route::resource('banners', BannerController::class);
+                  Route::resource('banners', BannerController::class)->middleware(['can:read banner']);
 
                   require __DIR__ . '/users/web.php';
          });

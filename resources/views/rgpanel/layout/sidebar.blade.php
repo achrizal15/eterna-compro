@@ -5,7 +5,8 @@
             <a href="#">
                 <img src="{{ asset('dist/rgpanel/assets') }}/images/avatars/avatar.png">
                 <span class="activity-indicator"></span>
-                <span class="user-info-text">Chloe<br><span class="user-state-info">@lang('menu.active')</span></span>
+                <span class="user-info-text">{{ auth()->user()->name }}<br><span
+                        class="user-state-info">@lang('menu.active')</span></span>
             </a>
         </div>
     </div>
@@ -20,7 +21,8 @@
             @endcan
 
             @can('read banner')
-                <li><a href="{{ route('rgpanel.banners.index', ['locale' => app()->getLocale()]) }}"><i
+                <li class="{{ request()->routeIs('rgpanel.banners.*') ? 'active-page' : '' }}"><a
+                        href="{{ route('rgpanel.banners.index', ['locale' => app()->getLocale()]) }}"><i
                             class="material-icons-two-tone">collections_bookmark</i>@lang('menu.banners')</a></li>
             @endcan
             <li> <a href="#"><i class="material-icons-two-tone">home_repair_service</i>@lang('menu.services')</a></li>
